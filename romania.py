@@ -2,24 +2,51 @@ from search import Problem, Node
 
 class BucharestProblem(Problem):
 
-    # I updated your map so that all the cities are keys
     romania_map = {
-        "Arad"      :  {"Zerind" : 75, "Timisoara" : 118, "Sibiu" : 140},
-        "Sibiu"     :  {"Arad" : 140, "Oradea" : 151, "Rimnicu" : 80, "Fagaras" : 99},
-        "Zerind"    :  {"Arad" : 75, "Oradea": 71},
-        "Timisoara" :  {"Arad" : 118, "Lugoj" : 111},
-        "Mehadia"   :  {"Lugoj" : 70, "Drobeta" : 75},
-        "Bucharest" :  {"Urziceni" : 85, "Pitesti" : 101, "Giurgiu" : 90, "Fagaras" : 211},
-        "Craiova"   :  {"Drobeta" : 120, "Rimnicu" : 146, "Pitesti" : 138},
-        "Drobeta"   :  {"Mehadia" : 75, "Craiova" : 120},
-        "Fagaras"   :  {"Sibiu" : 99, "Bucharest" : 211},
-        "Lugoj"     :  {"Timisoara" : 111, "Mehadia" : 70},
-        "Oradea"    :  {"Zerind" : 71, "Sibiu" : 151},
-        "Pitesti"   :  {"Rimnicu" : 97, "Craiova" : 138, "Bucharest" : 101},
-        "Rimnicu"   :  {"Sibiu" : 80, "Pitesti" : 97},
-        "Giurgiu"   :  {"Bucharest" : 90},
-        "Urziceni"  :  {"Bucharest" : 85}
+        "Arad"      :  {"Zerind": 75, "Sibiu": 140, "Timisoara": 118},
+        "Bucharest" :  {"Urziceni": 85, "Pitesti": 101, "Giurgiu": 90, "Fagaras": 211},
+        "Craiova"   :  {"Drobeta": 120, "Rimnicu": 146, "Pitesti": 138},
+        "Drobeta"   :  {"Mehadia": 75, "Craiova": 120},
+        "Eforie"    :  {"Hirsova": 86},
+        "Fagaras"   :  {"Sibiu": 99, "Bucharest": 211},
+        "Giurgiu"   :  {"Buchareset": 90},
+        "Hirsova"   :  {"Urziceni": 98, "Eforie": 86},
+        "Iasi"      :  {"Vaslui": 92, "Neamt": 87},
+        "Lugoj"     :  {"Timisoara": 111, "Mehadia": 70},
+        "Mehadia"   :  {"Lugoj", 70, "Drobeta": 75},
+        "Neamt"     :  {"Iasi": 87},
+        "Oradea"    :  {"Zerind": 71, "Sibiu": 151},
+        "Pitesti"   :  {"Rimnicu": 97, "Bucharest": 101},
+        "Rimnicu"   :  {"Sibiu": 80, "Pitesti": 97, "Craiova": 146},
+        "Sibiu"     :  {"Rimnicu": 80, "Fagaras": 99, "Oradea": 151, "Arad": 140 },
+        "Timisoara" :  {"Arad": 118, "Lugoj": 111},
+        "Urziceni"  :  {"Vaslui": 142, "Bucharest": 85, "Hirsova": 98},
+        "Vaslui"    :  {"Iasi": 92, "Urziceni": 142},
+        "Zerind"    :  {"Oradea": 71, "Arad": 75}
         }
+    
+    romania_straight_line_distance = {
+        "Arad"      :  366,
+        "Bucharest" :  0,
+        "Craiova"   :  160,
+        "Drobeta"   :  242,
+        "Eforie"    :  161,
+        "Fagaras"   :  176,
+        "Giurgiu"   :  77,
+        "Hirsova"   :  151,
+        "Iasi"      :  226,
+        "Lugoj"     :  244,
+        "Mehadia"   :  241,
+        "Neamt"     :  234,
+        "Oradea"    :  380,
+        "Pitesti"   :  100,
+        "Rimnicu"   :  193,
+        "Sibiu"     :  253,
+        "Timisoara" :  329,
+        "Urziceni"  :  80,
+        "Vaslui"    :  199,
+        "Zerind"    :  374
+    }
 
 
     def __init__(self,start="Arad",goal="Bucharest"):

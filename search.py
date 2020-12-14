@@ -18,7 +18,8 @@ def is_in(elt, seq):
 
 class NodePriorityQueue:
     """Simple Proxy for a heapq with a feature for pushing Nodes onto the Queue"""
-    def __init__(self, values=[]):
+    def __init__(self, hueristic_function, values=[]):
+        self.get_hueristic = hueristic_function
         self.values = values
         heapq.heapify(self.values)
 
@@ -26,7 +27,7 @@ class NodePriorityQueue:
         """if an instance of Node is pushed onto the queue the path_cost for the 
         Node is used to prioritize the queue"""
         if isinstance(x,Node):
-            heapq.heappush(self.values, (x.path_cost, x))
+            heapq.heappush(self.values, (self.get_hueristic(x), x))
         else:
             heapq.heappush(self.values, x)
         
@@ -37,6 +38,9 @@ class NodePriorityQueue:
     def __repr__(self):
         """proxy to the representation for heapq"""
         return self.values.__repr__()
+    
+    def __len__(self):
+        return len(self.values)
     
     def does_contain(self, _node):
         """Checks wether a node is in the queue"""

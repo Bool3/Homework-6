@@ -13,7 +13,7 @@ class BucharestProblem(Problem):
         "Hirsova"   :  {"Urziceni": 98, "Eforie": 86},
         "Iasi"      :  {"Vaslui": 92, "Neamt": 87},
         "Lugoj"     :  {"Timisoara": 111, "Mehadia": 70},
-        "Mehadia"   :  {"Lugoj", 70, "Drobeta": 75},
+        "Mehadia"   :  {"Lugoj": 70, "Drobeta": 75},
         "Neamt"     :  {"Iasi": 87},
         "Oradea"    :  {"Zerind": 71, "Sibiu": 151},
         "Pitesti"   :  {"Rimnicu": 97, "Bucharest": 101},
@@ -72,12 +72,16 @@ class BucharestProblem(Problem):
         return c + self.romania_map[state1][state2]
 
 
+    def straight_line_distance(self, state):
+        return self.romania_straight_line_distance[state]
+
+
 if __name__ == '__main__':
-    from bfs import uniform_cost_search, breadth_first_search
-    
+    from algorithms import sarkissian_hw6_1
+
     print("")
-    print("---BREADTH FIRST SEARCH: ROMANIA---")
-    solution_node = breadth_first_search(BucharestProblem())
+    print("---GREEDY SEARCH: ROMANIA---")
+    solution_node = sarkissian_hw6_1(BucharestProblem())
     if type(solution_node) == Node:
         solution = solution_node.solution()
         
@@ -86,7 +90,8 @@ if __name__ == '__main__':
     else:
         print(solution_node)
     print("")
-    
+
+"""
     print("---UNIFORM COST SEARCH: ROMANIA---")
     solution_node = uniform_cost_search(BucharestProblem())
     if type(solution_node) == Node:
@@ -97,3 +102,4 @@ if __name__ == '__main__':
     else:
         print(solution_node)
     print("")
+"""

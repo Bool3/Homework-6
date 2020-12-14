@@ -9,7 +9,7 @@ class BucharestProblem(Problem):
         "Drobeta"   :  {"Mehadia": 75, "Craiova": 120},
         "Eforie"    :  {"Hirsova": 86},
         "Fagaras"   :  {"Sibiu": 99, "Bucharest": 211},
-        "Giurgiu"   :  {"Buchareset": 90},
+        "Giurgiu"   :  {"Bucharest": 90},
         "Hirsova"   :  {"Urziceni": 98, "Eforie": 86},
         "Iasi"      :  {"Vaslui": 92, "Neamt": 87},
         "Lugoj"     :  {"Timisoara": 111, "Mehadia": 70},
@@ -24,7 +24,7 @@ class BucharestProblem(Problem):
         "Vaslui"    :  {"Iasi": 92, "Urziceni": 142},
         "Zerind"    :  {"Oradea": 71, "Arad": 75}
         }
-    
+
     romania_straight_line_distance = {
         "Arad"      :  366,
         "Bucharest" :  0,
@@ -47,7 +47,6 @@ class BucharestProblem(Problem):
         "Vaslui"    :  199,
         "Zerind"    :  374
     }
-
 
     def __init__(self,start="Arad",goal="Bucharest"):
         super().__init__(start,goal)
@@ -77,29 +76,17 @@ class BucharestProblem(Problem):
 
 
 if __name__ == '__main__':
-    from algorithms import sarkissian_hw6_1
-
+    from algorithms import sarkissian_hw6_1, sarkissian_hw6_2
+    
     print("")
     print("---GREEDY SEARCH: ROMANIA---")
-    solution_node = sarkissian_hw6_1(BucharestProblem())
-    if type(solution_node) == Node:
-        solution = solution_node.solution()
-        
-        print(f"Solution Path: {solution}")
-        print(f"Distance Traveled: {solution_node.path_cost}")
-    else:
-        print(solution_node)
+    solution = sarkissian_hw6_1(BucharestProblem())
+    print(solution)
     print("")
+    
 
-"""
-    print("---UNIFORM COST SEARCH: ROMANIA---")
-    solution_node = uniform_cost_search(BucharestProblem())
-    if type(solution_node) == Node:
-        solution = solution_node.solution()
-
-        print(f"Solution Path: {solution}")
-        print(f"Distance Traveled: {solution_node.path_cost}")
-    else:
-        print(solution_node)
     print("")
-"""
+    print("---A STAR: ROMANIA---")
+    solution = sarkissian_hw6_2(BucharestProblem())
+    print(solution)
+    print("")

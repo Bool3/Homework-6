@@ -80,7 +80,8 @@ if __name__ == '__main__':
     
     print("")
     print("---GREEDY SEARCH: ROMANIA---")
-    solution = sarkissian_hw6_1(BucharestProblem())
+    bucharest_problem = BucharestProblem()
+    solution = sarkissian_hw6_1(bucharest_problem, Node(bucharest_problem.initial))
     print(solution)
     print("")
     
